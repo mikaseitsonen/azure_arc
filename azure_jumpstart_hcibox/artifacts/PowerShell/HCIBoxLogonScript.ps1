@@ -19,6 +19,7 @@ Start-Transcript -Path "$($HCIBoxConfig.Paths.LogsDir)\HCIBoxLogonScript.log"
 # Login to Azure CLI with service principal provided by user
 Write-Header "Az CLI Login"
 az login --service-principal --username $Env:spnClientID --password=$Env:spnClientSecret --tenant $Env:spnTenantId
+az account set --subscription $env:subscriptionId
 
 # Login to Azure PowerShell with service principal provided by user
 $spnpassword = ConvertTo-SecureString $env:spnClientSecret -AsPlainText -Force
